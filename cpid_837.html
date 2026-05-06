@@ -1,0 +1,54 @@
+<span id="probtext-text" class="mathjax">奶牛Bessie着眼于农场之外的长期职业发展，开始从各种在线编程网站学习算法。
+
+<p>到目前为止，她最喜欢的算法是“冒泡排序”。下面是Bessie用“奶牛代码”实现的初始版本，用于对长度为$N$的数组$A$进行排序。</p>
+
+<p></p><pre>sorted = false
+while (not sorted):
+   sorted = true
+   moo
+   for i = 0 to N-2:
+      if A[i+1] &lt; A[i]:
+         swap A[i], A[i+1]
+         sorted = false
+</pre>
+
+<p>显然，“奶牛代码”中的`moo`命令除了打印“moo”之外，没有其他作用。奇怪的是，Bessie似乎坚持在代码的各个地方都加上它。</p>
+
+<p>在对她的代码进行多次数组测试后，Bessie有了一个有趣的发现：虽然大元素可以很快地被“拉”到数组末尾，但小元素“冒泡”到数组前端却需要很长时间（她怀疑这就是该算法得名的原因）。为了缓解这个问题，Bessie尝试修改代码，使主循环的每次迭代都先向前扫描，再向后扫描。这样，大元素和小元素都有机会在每次主循环迭代中被长距离“拉动”。她的代码现在看起来是这样的：</p>
+
+<p></p><pre>sorted = false
+while (not sorted):
+   sorted = true
+   moo
+   for i = 0 to N-2:
+      if A[i+1] &lt; A[i]:
+         swap A[i], A[i+1]
+   for i = N-2 downto 0:
+      if A[i+1] &lt; A[i]:
+         swap A[i], A[i+1]
+   for i = 0 to N-2:
+      if A[i+1] &lt; A[i]:
+         sorted = false
+</pre>
+
+<p>给定一个输入数组，请预测Bessie修改后的代码会打印多少次“moo”。</p>
+
+<p></p><div class="prob-in-spec"><h4>输入格式 (文件 sort.in):</h4>
+输入的第一行包含一个整数$N$（$1 \leq N \leq 100,000$）。接下来$N$行描述了数组$A[0 \ldots N-1]$，每行一个整数，范围在$0 \ldots 10^9$之间。输入元素不保证是唯一的。
+</div>
+
+<p></p><div class="prob-out-spec"><h4>输出格式 (文件 sort.out):</h4>
+输出“moo”被打印的次数。
+</div>
+
+<p></p><h4>样例输入:</h4><pre class="in">5
+1
+8
+5
+3
+2
+</pre><h4>样例输出:</h4> <pre class="out">2
+</pre>
+
+<p>
+</p><p>问题来源: Brian Dean</p></span>
